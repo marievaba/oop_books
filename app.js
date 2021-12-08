@@ -1,8 +1,8 @@
 const ui = new UI();
+const ls = new LS();
 
 const form = document.querySelector('#book-form');
 form.addEventListener('submit', addBook);
-
 
 function addBook(event) {
 
@@ -13,6 +13,8 @@ function addBook(event) {
     const book = new Book(title, author, isbn);
 
     ui.addBook(book);
+
+    ls.addBook(book);
 
     ui.title.value = ''
     ui.author.value = ''
