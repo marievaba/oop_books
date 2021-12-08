@@ -4,19 +4,18 @@ const form = document.querySelector('#book-form');
 form.addEventListener('submit', addBook);
 
 
-function addBook(event){
+function addBook(event) {
 
-    const title = document.querySelector('#title').value;
-    const author = document.querySelector('#author').value;
-    const isbn = document.querySelector('#isbn').value;
+    const title = ui.title.value;
+    const author = ui.author.value;
+    const isbn = ui.isbn.value;
 
     const book = new Book(title, author, isbn);
-    console.log(book);
 
     ui.addBook(book);
 
-    document.querySelector('#title').value = ''
-    document.querySelector('#author').value = ''
-    document.querySelector('#isbn').value = ''
+    ui.title.value = ''
+    ui.author.value = ''
+    ui.isbn.value = ''
     event.preventDefault();
 }
