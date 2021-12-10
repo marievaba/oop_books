@@ -13,4 +13,19 @@ class UI {
                 <td><a href="#">X</a></td>`
         this.bookList.appendChild(tr);
     }
+    getBook(click) {
+        let isbn = click.target.parentElement.previousElementSibling.textContent;
+        let author = click.target.parentElement.previousElementSibling.textContent;
+        let title = click.target.parentElement.previousElementSibling.textContent;
+        const book = new Book(title, author, isbn);
+        return book;
+    }
+    delBook(click) {
+        if (confirm('Do you really want to delete this books?')) {
+            click.parentElement.parentElement.remove();
+            return true
+        } else {
+            return false
+        }
+    }
 }

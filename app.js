@@ -6,9 +6,21 @@ form.addEventListener('submit', addBook);
 
 document.addEventListener('DOMContentLoaded', getBooks);
 
+bookList = document.querySelector('#book-list');
+bookList.addEventListener('click', delBook);
+
+function delBook(event) {
+    if (event.target.textContent === 'X'){
+        const book = ui.getBook(event.target);
+        if (ui.delBook(event.target) === true){
+            ls.delBook(book);
+        }
+    }
+}
+
 function getBooks() {
     const books = ls.getData('books');
-    books.forEach(function (booksFromLS) {
+    books.forEach(function (booksFromLS ){
         ui.addBook(booksFromLS);
     })
 }
